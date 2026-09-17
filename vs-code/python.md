@@ -623,49 +623,6 @@ dependencies = [
 
 ---
 
-## 16. Git
-
-В Git следует сохранять исходный код и описание проекта:
-
-```text
-my-project/
-├── src/
-├── tests/
-├── pyproject.toml
-├── README.md
-├── .gitignore
-└── .vscode/
-```
-
-Но не само виртуальное окружение:
-
-```text
-.venv/
-```
-
-Минимальный `.gitignore`:
-
-```gitignore
-.venv/
-__pycache__/
-*.py[cod]
-```
-
-Обычно также исключаются:
-
-```gitignore
-.pytest_cache/
-.mypy_cache/
-.ruff_cache/
-.coverage
-htmlcov/
-dist/
-build/
-*.egg-info/
-```
-
----
-
 ## 17. Создание Git-репозитория
 
 Если проект ещё не является Git-репозиторием:
