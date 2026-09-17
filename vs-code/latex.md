@@ -212,23 +212,11 @@ LaTeX Workshop может автоматически пересобирать п
 Для этого в настройках профиля `LaTeX` установить:
 
 ```json
-"latex-workshop.latex.autoBuild.run": "onFileChange"
+"latex-workshop.latex.autoBuild.run": "onSave",
+"latex-workshop.latex.autoBuild.onSave.files.ignore": [],
 ```
 
-Вместе с настройкой переноса строк соответствующая часть `settings.json` будет выглядеть так:
-
-```json
-{
-    "[latex]": {
-        "editor.wordWrap": "on",
-        "editor.wrappingIndent": "same"
-    },
-
-    "latex-workshop.latex.autoBuild.run": "onFileChange"
-}
-```
-
-`onFileChange` означает, что LaTeX Workshop запускает сборку после изменения файла проекта на диске.
+`onSave` означает, что LaTeX Workshop запускает сборку после сохранения изменений в файле проекта на диск.
 
 Таким образом, обычная работа выглядит так:
 
@@ -260,7 +248,7 @@ LaTeX Workshop определяет зависимости проекта по �
 **/*.sty
 ```
 
-из файлов, отслеживаемых для `onFileChange`.
+из файлов, отслеживаемых для `onSave`.
 
 Чтобы изменение собственного `.sty` также запускало сборку:
 
@@ -340,7 +328,7 @@ Build LaTeX project
 test.pdf
 ```
 
-После включения `onFileChange` последующие изменения и сохранения `test.tex` должны приводить к автоматической пересборке.
+После включения `onSave` последующие изменения и сохранения `test.tex` должны приводить к автоматической пересборке.
 
 ---
 
@@ -491,23 +479,6 @@ LaTeX Workshop умеет определять основной root-файл и
 ## 13. Profile settings и project settings
 
 Здесь полезно различать два уровня настроек.
-
-### Настройки профиля LaTeX
-
-В профиль имеет смысл поместить настройки, которые нужны практически для всех LaTeX-проектов:
-
-```json
-{
-    "[latex]": {
-        "editor.wordWrap": "on",
-        "editor.wrappingIndent": "same"
-    },
-
-    "latex-workshop.latex.autoBuild.run": "onFileChange"
-}
-```
-
-Сюда же относится установка расширения LaTeX Workshop.
 
 ### `.vscode/settings.json`
 
